@@ -1,12 +1,18 @@
 
-const loginBox = document.querySelector("#login-form input");
-const loginButton = document.querySelector("#login-form input:last-child");
+const loginForm = document.querySelector("#login-form");
+const loginInput = document.querySelector("#login-form_input");
 
 function onSubmitLoginButton(arg)
 {
     arg.preventDefault();
-    console.log(loginBox.value);
+    
+    console.dir(loginInput);
+    const name = loginInput.innerHTML;
+    localStorage.setItem("name",name);
+    loginInput.innerHTML = "";
 
 }
 
-loginButton.addEventListener("submit", onSubmitLoginButton);
+loginForm.addEventListener("submit", onSubmitLoginButton);
+
+
